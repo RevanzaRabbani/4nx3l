@@ -2,23 +2,176 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>4nx1l University</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>4nx1l Univ</title>
+    <link rel="stylesheet" href="./assets/index.css">
+    <!-- Lucide Icons (CDN for static) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
 
-  <div id="app">
-    <h1>4nx1l University</h1>
-    <p>Website berhasil ditampilkan 🎉</p>
-  </div>
+    <div class="app-container">
 
-  <!-- JS -->
-  <script src="assets/index.js"></script>
+        <!-- SPLASH SCREEN -->
+        <div id="splash-screen" class="screen-section splash-bg">
+            <div class="glass-card"
+                style="padding: 24px; border-radius: 50%; margin-bottom: 24px; background: rgba(255,255,255,0.1);">
+                <i data-lucide="graduation-cap" width="64" height="64" color="white"></i>
+            </div>
+            <h1 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 8px;">4nx1l University</h1>
+            <p style="color: rgba(255,255,255,0.6); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;">
+                Smart Campus, Smart Students</p>
+            <div
+                style="width: 200px; height: 4px; background: rgba(255,255,255,0.1); margin-top: 32px; border-radius: 2px; overflow: hidden;">
+                <div id="splash-progress" class="progress-bar"></div>
+            </div>
+        </div>
+
+        <!-- LOGIN SCREEN -->
+        <div id="login-screen" class="screen-section hidden"
+            style="height: 100vh; display: flex; align-items: center; padding: 24px; position: relative;">
+
+            <!-- Background Orbs -->
+            <div class="absolute"
+                style="top: -100px; left: -100px; width: 300px; height: 300px; background: var(--color-brand-red); border-radius: 50%; filter: blur(80px); opacity: 0.4;">
+            </div>
+            <div class="absolute"
+                style="bottom: -50px; right: -50px; width: 250px; height: 250px; background: var(--color-primary); border-radius: 50%; filter: blur(80px); opacity: 0.3;">
+            </div>
+
+            <div class="glass-card w-full relative z-10 animate-slide-up">
+                <div class="text-center mb-8">
+                    <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 8px;">Login</h2>
+                    <p style="color: gray;">Access your portal</p>
+                </div>
+
+                <form id="login-form">
+                    <div class="input-group">
+                        <i data-lucide="user" class="input-icon" width="20"></i>
+                        <input type="text" class="input-field" placeholder="Student ID" required>
+                    </div>
+                    <div class="input-group">
+                        <i data-lucide="lock" class="input-icon" width="20"></i>
+                        <input type="password" class="input-field" placeholder="Password" required>
+                    </div>
+                    <button type="submit" id="btn-login" class="btn-primary" style="margin-top: 24px;">
+                        Login <i data-lucide="arrow-right" width="18"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- MAIN LAYOUT (Home, Timeline, etc) -->
+        <div id="main-layout" class="screen-section hidden h-full">
+
+            <!-- Pages Container -->
+            <div class="pb-20"> <!-- Padding for Bottom Nav -->
+
+                <!-- HOME PAGE -->
+                <div id="page-home" class="page-content hidden">
+                    <div class="home-header">
+                        <div class="flex items-center" style="gap: 12px;">
+                            <div class="avatar">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Revanza&backgroundColor=b6e3f4"
+                                    alt="User">
+                            </div>
+                            <div>
+                                <p style="font-size: 0.75rem; color: gray;">Welcome,</p>
+                                <h2 style="font-size: 1.1rem; font-weight: 700;">Revanza Ar</h2>
+                            </div>
+                        </div>
+                        <div class="glass-card" style="padding: 8px; border-radius: 50%;">
+                            <i data-lucide="bell" width="20" color="white"></i>
+                        </div>
+                    </div>
+
+                    <!-- Example Cards -->
+                    <div style="padding: 0 24px;">
+                        <h3 style="font-weight: 600; margin-bottom: 16px;">Today's Schedule</h3>
+
+                        <!-- Simple Carousel Mockup -->
+                        <div class="flex" style="gap: 12px; overflow-x: auto; padding-bottom: 12px;">
+                            <div class="glass-card" style="min-width: 200px; padding: 16px;">
+                                <span style="font-size: 0.7rem; color: var(--color-accent-gold);">08:00 AM</span>
+                                <h4 style="font-weight: 600; margin: 4px 0;">System Security</h4>
+                                <p style="font-size: 0.8rem; color: gray;">Lab 3 • Dr. Yudi</p>
+                            </div>
+                            <div class="glass-card" style="min-width: 200px; padding: 16px;">
+                                <span style="font-size: 0.7rem; color: var(--color-accent-gold);">10:30 AM</span>
+                                <h4 style="font-weight: 600; margin: 4px 0;">Algorithm</h4>
+                                <p style="font-size: 0.8rem; color: gray;">Room 404</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TIMELINE PAGE -->
+                <div id="page-timeline" class="page-content hidden flex items-center justify-center"
+                    style="height: 80vh;">
+                    <div class="text-center">
+                        <i data-lucide="calendar" width="48" color="gray" style="margin-bottom: 16px;"></i>
+                        <p style="color: gray;">Timeline Content Here</p>
+                    </div>
+                </div>
+
+                <!-- SCAN PAGE -->
+                <div id="page-scan" class="page-content hidden flex items-center justify-center" style="height: 80vh;">
+                    <button class="btn-primary" style="width: auto; border-radius: 50%; width: 80px; height: 80px;">
+                        <i data-lucide="qr-code" width="32"></i>
+                    </button>
+                </div>
+
+                <!-- NOTIFICATIONS PAGE -->
+                <div id="page-notifications" class="page-content hidden flex items-center justify-center"
+                    style="height: 80vh;">
+                    <p style="color: gray;">No new notifications</p>
+                </div>
+
+                <!-- PROFILE PAGE -->
+                <div id="page-profile" class="page-content hidden flex items-center justify-center"
+                    style="height: 80vh;">
+                    <p style="color: gray;">Profile Logic Here</p>
+                </div>
+
+            </div>
+
+            <!-- BOTTOM NAVIGATION -->
+            <nav class="bottom-nav">
+                <a href="#home" class="nav-item">
+                    <i data-lucide="home" width="20"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#timeline" class="nav-item">
+                    <i data-lucide="calendar" width="20"></i>
+                    <span>Timeline</span>
+                </a>
+                <a href="#scan" class="nav-item">
+                    <div
+                        style="background: var(--color-primary); padding: 8px; border-radius: 50%; margin-top: -20px; box-shadow: 0 4px 12px rgba(225, 29, 72, 0.4);">
+                        <i data-lucide="scan-line" width="20" color="white"></i>
+                    </div>
+                </a>
+                <a href="#notifications" class="nav-item">
+                    <i data-lucide="bell" width="20"></i>
+                    <span>Notif</span>
+                </a>
+                <a href="#profile" class="nav-item">
+                    <i data-lucide="user" width="20"></i>
+                    <span>Profile</span>
+                </a>
+            </nav>
+
+        </div>
+
+    </div>
+
+    <!-- Init Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="./assets/index.js"></script>
 </body>
 
 </html>
